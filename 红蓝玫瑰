@@ -1,0 +1,15 @@
+s = input()
+n = len(s)
+qB,qA = 0,0
+
+for i in range(n):
+
+    if s[i] == 'R':
+        qA = min(qA,qB+1)
+        qB = min(qB+1,qA+1)
+
+    if s[i] == 'B':
+        qA = min(qB+1,qA+1)
+        qB = min(qB,qA+1)
+
+print(min(qA,qB+1))
